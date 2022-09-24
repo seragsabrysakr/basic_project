@@ -1,4 +1,4 @@
-import 'package:demo/core/app_widgets/custom_button.dart';
+import 'package:delivery/core/app_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 

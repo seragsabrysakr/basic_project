@@ -1,3 +1,5 @@
+import 'package:delivery/feature/data/network/api.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -10,6 +12,5 @@ abstract class DIModule {
   InternetConnectionChecker get connectionChecker =>
       InternetConnectionChecker();
 
-  // AuthServiceClient getAuthService(Dio client) => AuthServiceClient(client);
-
+  ServiceClient getServiceClient(Dio client) => ServiceClient(client);
 }

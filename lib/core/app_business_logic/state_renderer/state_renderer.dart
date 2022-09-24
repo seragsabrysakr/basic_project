@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../app_utils/app_assets.dart';
 import '/../core/app_utils/app_text_style.dart';
 import '../../app_utils/app_fonts.dart';
 
@@ -55,35 +56,35 @@ class StateRenderer extends StatelessWidget {
   Widget _getStateWidget(BuildContext context) {
     switch (stateRendererType) {
       case StateRendererType.popupLoadingState:
-        return _getPopUpLoadingDialog(context, [_getAnimatedImage('')]);
+        return _getPopUpLoadingDialog(context, [_getAnimatedImage(AppJsonAssets.loading)]);
       case StateRendererType.popupErrorState:
         return _getPopUpDialog(context, [
-          _getAnimatedImage(''),
+          _getAnimatedImage(AppJsonAssets.error),
           _getMessage(message),
-          getRetryButton('App.tr.ok', context)
+          getRetryButton('ok', context)
         ]);
       case StateRendererType.fullScreenLoadingState:
         return _getItemsColumn(
-            [_getAnimatedImage('JsonAssets.loading'), _getMessage(message)]);
+            [_getAnimatedImage(AppJsonAssets.loading), _getMessage(message)]);
       case StateRendererType.fullScreenErrorState:
         return
             // EmptyViewScreen(item: EmptyItems.connectionEmpty);
             _getItemsColumn([
-          _getAnimatedImage('JsonAssets.error'),
+          _getAnimatedImage(AppJsonAssets.error),
           _getMessage(message),
-          getRetryButton('App.tr.retryAgain', context)
+          getRetryButton('retryAgain', context)
         ]);
       case StateRendererType.fullScreenEmptyState:
         return _getItemsColumn(
-            [_getAnimatedImage('JsonAssets.empty'), _getMessage(message)]);
+            [_getAnimatedImage(AppJsonAssets.empty), _getMessage(message)]);
       case StateRendererType.contentState:
         return Container();
       case StateRendererType.popupSuccess:
         return _getPopUpDialog(context, [
-          _getAnimatedImage('JsonAssets.success'),
+          _getAnimatedImage(AppJsonAssets.success),
           _getMessage(title),
           _getMessage(message),
-          getRetryButton('App.tr.ok', context)
+          getRetryButton('ok', context)
         ]);
 
       default:
@@ -113,7 +114,7 @@ class StateRenderer extends StatelessWidget {
       backgroundColor: Colors.transparent,
       elevation: 0,
       child: Container(
-        child: Lottie.asset('JsonAssets.loading', width: 400, height: 400),
+        child: Lottie.asset(AppJsonAssets.loading, width: 400, height: 400),
       ),
     );
   }

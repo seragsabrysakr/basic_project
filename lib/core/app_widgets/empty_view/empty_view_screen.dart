@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../app_widgets/custom_button.dart';
-import '../app_widgets/custom_text.dart';
+import '../custom_button.dart';
+import '../custom_text.dart';
 import 'empty_item_model.dart';
 
 class EmptyViewScreen extends StatelessWidget {

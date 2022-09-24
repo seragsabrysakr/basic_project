@@ -12,6 +12,7 @@ class Routes {
 class AppRoutes {
   static Route? onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
+      //initial Route
       case Routes.initialRoute:
         return MaterialPageRoute(builder: (context) {
           return MyHomePage(
