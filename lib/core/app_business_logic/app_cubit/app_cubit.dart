@@ -14,21 +14,21 @@ part 'app_state.dart';
 class AppCubit extends Cubit<AppState> {
   final AppPreferences _preferences;
   AppCubit(this._preferences) : super(AppInitial()) {
-    locale = Locale(_preferences.getLanguage());
-    theme = _preferences.getTheme();
+    locale = Locale(_preferences.appLanguage);
+    theme = _preferences.getTheme;
   }
   static AppCubit get(context) => BlocProvider.of(context);
 
   late Locale locale;
   late ThemeData? theme;
 
-  bool get isArSelected => _preferences.getLanguage() == AppStrings.arLanguage;
+  bool get isArSelected => _preferences.appLanguage == AppStrings.arLanguage;
   bool get isDarkMode =>
-      _preferences.getTheme() == appThemeData[AppTheme.darkAppTheme];
+      _preferences.getTheme == appThemeData[AppTheme.darkAppTheme];
 
   void setLang(String lang) {
     locale = Locale(lang);
-    _preferences.setLanguage(lang);
+    _preferences.appLanguage=lang;
     emit(ChangeLanguage());
   }
 
@@ -46,7 +46,7 @@ class AppCubit extends Cubit<AppState> {
     } else {
       theme = appThemeData[AppTheme.lightAppTheme];
     }
-    _preferences.setTheme(isDark);
+    _preferences.appTheme=isDark;
     emit(ChangeTheme());
   }
 

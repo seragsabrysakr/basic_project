@@ -45,10 +45,10 @@ extension DioHeader on Dio {
     Map<String, String> headers = {
       CONTENT_TYPE: APPLICATION_JSON,
       ACCEPT: APPLICATION_JSON,
-      AUTHORIZATION:
-          "Bearer " + _preferences.getData(AppPreferences.userToken, ""),
-      ACCEPT_Language:
-          _preferences.getData(AppPreferences.lang, AppStrings.defaultLanguage),
+      AUTHORIZATION: "Bearer ",
+      // + _preferences.getData(AppPreferences.userToken, ""),
+      ACCEPT_Language: 'language',
+      // _preferences.getData(AppPreferences.lang, AppStrings.defaultLanguage),
       // DEFAULT_LANGUAGE: language
     };
 

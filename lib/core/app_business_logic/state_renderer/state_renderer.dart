@@ -64,8 +64,7 @@ class StateRenderer extends StatelessWidget {
           getRetryButton('ok', context)
         ]);
       case StateRendererType.fullScreenLoadingState:
-        return _getItemsColumn(
-            [_getAnimatedImage(AppJsonAssets.loading), _getMessage(message)]);
+        return _getItemsColumn([_getAnimatedImage(AppJsonAssets.loading), _getMessage(message)]);
       case StateRendererType.fullScreenErrorState:
         return
             // EmptyViewScreen(item: EmptyItems.connectionEmpty);
@@ -75,8 +74,7 @@ class StateRenderer extends StatelessWidget {
           getRetryButton('retryAgain', context)
         ]);
       case StateRendererType.fullScreenEmptyState:
-        return _getItemsColumn(
-            [_getAnimatedImage(AppJsonAssets.empty), _getMessage(message)]);
+        return _getItemsColumn([_getAnimatedImage(AppJsonAssets.empty), _getMessage(message)]);
       case StateRendererType.contentState:
         return Container();
       case StateRendererType.popupSuccess:
@@ -94,15 +92,14 @@ class StateRenderer extends StatelessWidget {
 
   Widget _getPopUpDialog(BuildContext context, List<Widget> children) {
     return Dialog(
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSize.s14)),
-      elevation: AppSize.s1_5,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizeManager.s14)),
+      elevation: AppSizeManager.s1_5,
       backgroundColor: Colors.transparent,
       child: Container(
         decoration: BoxDecoration(
             color: Colors.white,
             shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.circular(AppSize.s14),
+            borderRadius: BorderRadius.circular(AppSizeManager.s14),
             boxShadow: const [BoxShadow(color: Colors.black26)]),
         child: _getDialogContent(context, children),
       ),
@@ -147,11 +144,10 @@ class StateRenderer extends StatelessWidget {
   Widget _getMessage(String message) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(AppPadding.p8),
+        padding: const EdgeInsets.all(AppPaddingManager.p8),
         child: Text(
           message,
-          style: AppTextStyle.getRegularStyle(
-              color: Colors.white, fontSize: FontSize.s18),
+          style: AppTextStyle.getRegularStyle(color: Colors.white, fontSize: FontSizeManager.s18),
           textAlign: TextAlign.center,
         ),
       ),
@@ -161,13 +157,12 @@ class StateRenderer extends StatelessWidget {
   Widget getRetryButton(String buttonTitle, BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(AppPadding.p18),
+        padding: const EdgeInsets.all(AppPaddingManager.p18),
         child: SizedBox(
             width: double.infinity,
             child: ElevatedButton(
                 onPressed: () {
-                  if (stateRendererType ==
-                      StateRendererType.fullScreenErrorState) {
+                  if (stateRendererType == StateRendererType.fullScreenErrorState) {
                     // call retry function
                     retryActionFunction.call();
                   } else {

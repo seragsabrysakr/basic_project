@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class AppNavigator {
   static navigateAndFinish(
-      {required BuildContext context, required String screen}) {
+      {required BuildContext context, required String screen,Object? arguments}) {
     Navigator.of(context)
-        .pushNamedAndRemoveUntil(screen, (Route<dynamic> route) => false);
+        .pushNamedAndRemoveUntil(screen, (Route<dynamic> route) => false,arguments: arguments);
   }
 
-  static navigateBack({required BuildContext context}) {
-    Navigator.canPop(context) ? Navigator.pop(context) : null;
+  static navigateBack({required BuildContext context,Object? arguments}) {
+    Navigator.canPop(context,) ? Navigator.pop(context,arguments) : null;
   }
 
   static navigateTo(

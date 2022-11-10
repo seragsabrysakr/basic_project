@@ -12,7 +12,7 @@ class FontWeightManager {
   static const FontWeight bold = FontWeight.w700;
 }
 
-class FontSize {
+class FontSizeManager {
   static const double s12 = 12.0;
   static const double s14 = 14.0;
   static const double s16 = 16.0;
@@ -22,7 +22,7 @@ class FontSize {
   static const double s22 = 22.0;
 }
 
-class AppMargin {
+class AppMarginManager {
   static const double m8 = 8.0;
   static const double m12 = 12.0;
   static const double m14 = 14.0;
@@ -31,7 +31,7 @@ class AppMargin {
   static const double m20 = 20.0;
 }
 
-class AppPadding {
+class AppPaddingManager {
   static const double p2 = 2.0;
   static const double p8 = 8.0;
   static const double p12 = 12.0;
@@ -43,7 +43,7 @@ class AppPadding {
   static const double p100 = 100.0;
 }
 
-class AppSize {
+class AppSizeManager {
   static const double s0 = 0;
   static const double s1 = 1;
   static const int s2 = 2;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:delivery/core/app_utils/app_extensions.dart';
 
 class CustomTextField extends StatelessWidget {
   final bool obscure;
@@ -49,8 +49,8 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
+ final ValueNotifier<TextDirection> _textDir =
+      ValueNotifier(TextDirection.ltr);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -58,13 +58,11 @@ class CustomTextField extends StatelessWidget {
           decoration: BoxDecoration(
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(radius.h)),
-          width: width ?? size.width * .8,
+          width: width ??80.w,
           child: TextFormField(
-            // textAlignVertical: TextAlignVertical.bottom,
             onTap: ontap,
             enabled: enable,
-            // autofocus: true,
-            // obscuringCharacter: '*',
+            obscuringCharacter: '*',
             onEditingComplete: onedit,
             textInputAction: action,
             maxLines: max,

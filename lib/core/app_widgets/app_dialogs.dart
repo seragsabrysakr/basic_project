@@ -1,6 +1,6 @@
 import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:delivery/core/app_utils/app_extensions.dart';
 
 import 'custom_button.dart';
 import 'custom_text.dart';

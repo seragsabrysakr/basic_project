@@ -1,10 +1,9 @@
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:delivery/core/app_utils/app_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:sizer/sizer.dart';
 
 import 'custom_text.dart';
 
@@ -30,8 +29,7 @@ class WidgetsHelper {
   }
 
   //app bar//
-  static AppBar customAppBar(BuildContext context,
-      {required String title, VoidCallback? onTap}) {
+  static AppBar customAppBar(BuildContext context, {required String title, VoidCallback? onTap}) {
     return AppBar(
       leading: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(4.w, 0, 0, 0),
@@ -57,13 +55,10 @@ class WidgetsHelper {
   static Future<Uint8List> getBytesFromAsset({required String image}) async {
     ByteData data = await rootBundle.load(image);
 
-    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
-        targetWidth: 70);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(), targetWidth: 70);
 
     ui.FrameInfo fi = await codec.getNextFrame();
 
-    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
-        .buffer
-        .asUint8List();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!.buffer.asUint8List();
   }
 }
